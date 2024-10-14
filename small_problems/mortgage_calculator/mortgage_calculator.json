@@ -1,0 +1,9 @@
+{
+    
+    "welcome": "Welcome to Mortgage Calculator!",
+    "invalid_number": "Hmm... that doesn't look like a valid number.",
+    "enter_loan": "Enter loan amount: ",
+     "enter_apr": "Enter Annual Percentage Rate (APR): ",
+    "enter_duration": "Enter loan duration in years: "
+
+}
