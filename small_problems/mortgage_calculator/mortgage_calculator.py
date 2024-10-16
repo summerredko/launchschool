@@ -65,10 +65,10 @@ while True:
     print(f'Monthly mortgage payment: ${monthly_payment}')
 
     prompt("Would you like to execute another calculation? (y/n)")
-    answer = input()
+    answer = input().lower()
     if answer and answer[0].lower() != 'y':
         break
 
 while answer not in ["y", "n"]:
-    prompt("invalid_choice")
+    prompt('Invalid input. Please enter "y" or "n"')
     answer = input()
