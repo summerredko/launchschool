@@ -8,16 +8,16 @@ def prompt(message):
 def display_winner(player, computer):
     prompt(f"You chose {player}, computer chose {computer}")
 
-    if ((player == "scissors" and computer == "paper" or "p") or
-        (player == "paper" or "p" and computer == "rock" or "r") or
-        (player == "rock" or "r" and computer == "lizard" or "l") or
-        (player == "lizard" or "l" and computer == "spock" or "2") or
-        (player == "spock" or "2" and computer == "scissors" or "1") or
-        (player == "scissors" or "1" and computer == "lizard" or "l") or
-        (player == "lizard" or "l" and computer == "paper" or "p") or
-        (player == "paper" or "p" and computer == "spock" or "2") or
-        (player == "spock" or "2" and computer == "rock" or "r") or
-        (player == "rock" or "r" and computer == "scissors" or "1")):
+    if ((player == "scissors" and computer == "paper") or
+        (player == "paper" and computer == "rock") or
+        (player == "rock" and computer == "lizard") or
+        (player == "lizard" and computer == "spock") or
+        (player == "spock" and computer == "scissors") or
+        (player == "scissors" and computer == "lizard") or
+        (player == "lizard" and computer == "paper") or
+        (player == "paper" and computer == "spock") or
+        (player == "spock" and computer == "rock") or
+        (player == "rock" and computer == "scissors")):
         prompt("You win!")
     elif ((player == "scissors" and computer == "paper") or
         (player == "paper" and computer == "rock") or
