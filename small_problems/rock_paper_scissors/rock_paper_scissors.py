@@ -19,7 +19,22 @@ def display_winner(player, computer):
         (player == "spock" and computer == "rock") or
         (player == "rock" and computer == "scissors")):
         prompt("You win!")
-    elif ((player == "scissors" and computer == "paper") or
+    elif ((computer== "scissors" and player == "paper") or
+        (computer == "paper" and player == "rock") or
+        (computer == "rock" and player == "lizard") or
+        (computer == "lizard" and player == "spock") or
+        (computer == "spock" and player == "scissors") or
+        (computer == "scissors" and player == "lizard") or
+        (computer == "lizard" and player == "paper") or
+        (computer == "paper" and player == "spock") or
+        (computer == "spock" and player == "rock") or
+        (computer == "rock" and player == "scissors")):
+        prompt("Computer wins!")
+    else:
+        prompt("It's a tie!")
+
+def keep_score(player, computer):
+    if ((player == "scissors" and computer == "paper") or
         (player == "paper" and computer == "rock") or
         (player == "rock" and computer == "lizard") or
         (player == "lizard" and computer == "spock") or
@@ -29,9 +44,28 @@ def display_winner(player, computer):
         (player == "paper" and computer == "spock") or
         (player == "spock" and computer == "rock") or
         (player == "rock" and computer == "scissors")):
-        prompt("Computer wins!")
+        return "player"
+    elif ((computer == "scissors" and player == "paper") or
+          (computer == "paper" and player == "rock") or
+          (computer == "rock" and player == "lizard") or
+          (computer == "lizard" and player == "spock") or
+          (computer == "spock" and player == "scissors") or
+          (computer == "scissors" and player == "lizard") or
+          (computer == "lizard" and player == "paper") or
+          (computer == "paper" and player == "spock") or
+          (computer == "spock" and player == "rock") or
+          (computer == "rock" and player == "scissors")):
+        return "computer"
     else:
-        prompt("It's a tie!")
+        return "tie"
+# def match_winner(player, computer):
+
+#     if winner == "player":
+#         player_score += 1
+#     elif winner == "computer":
+#         computer_score += 1
+    
+#     return player_score, computer_score
 
 first_letter_to_word = {
     choice[0]: choice for choice in VALID_CHOICES}
@@ -40,6 +74,9 @@ number_to_word = {
     '1': "scissors",
     '2': "spock"
 }
+
+player_score = 0
+computer_score = 0
 
 while True:
     prompt(f'Choose one: {", ".join(VALID_CHOICES)}')
@@ -69,6 +106,19 @@ while True:
     computer_choice = random.choice(VALID_CHOICES)
 
     display_winner(choice, computer_choice)
+    winner = keep_score(choice, computer_choice)
+
+    if winner == "player":
+        player_score += 1
+    elif winner == "computer":
+        computer_score += 1    
+
+    print(f"Scores: Player {player_score}, Computer {computer_score}")
+
+    if player_score == 3:
+        print("You won the match!")
+    elif computer_score == 3:
+        print("Computer won the match!")
 
     while True:
         prompt("Do you want to play again (y/n)?")
