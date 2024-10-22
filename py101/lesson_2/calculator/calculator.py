@@ -1,11 +1,3 @@
-"""
-This module provides a simple calculator that performs basic arithmetic operations.
-It prompts the user for two numbers and an operation, then displays the result.
-
-Functions:
-- prompt(key): Prints a message based on the provided key.
-- invalid_number(number_str): Checks if the provided string is a valid number.
-"""
 
 # Ask the user for the first number.
 # Ask the user for the second number.
@@ -20,25 +12,10 @@ with open('calculator_messages.json', 'r', encoding='utf-8') as file:
     MESSAGES = json.load(file)
 
 def prompt(key):
-     """
-    Prints a message based on the provided key.
-
-    Args:
-        key (str): The key to look up the message in the MESSAGES dictionary.
-    """
     message = messages(key, LANGUAGE)
     print(f"==> {message}")
 
 def invalid_number(number_str):
-     """
-    Checks if the provided string is a valid number.
-
-    Args:
-        number_str (str): The string to check.
-
-    Returns:
-        bool: True if the string is not a valid number, False otherwise.
-    """
     try:
         float(number_str)
     except ValueError:
@@ -47,16 +24,6 @@ def invalid_number(number_str):
     return False
 
 def messages(message, lang='en'):
-    """
-    Retrieves a message from the MESSAGES dictionary based on the provided key and language.
-
-    Args:
-        message (str): The key to look up the message.
-        lang (str): The language code (default is 'en').
-
-    Returns:
-        str: The message corresponding to the provided key and language.
-    """
     return MESSAGES[lang][message]
 
 prompt('welcome')
@@ -99,7 +66,7 @@ while True:
 
 
     prompt("another_calculation")
-    answer = input()
+    answer = input().lower()
     if answer and answer[0].lower() != 'y':
         break
 
