@@ -93,7 +93,7 @@ def computer_chooses_square(board):
 
     if move is not None:
         board[move] = COMPUTER_MARKER
-        return  
+        return
 
     if board[5] == INITIAL_MARKER:
         board[5] = COMPUTER_MARKER
