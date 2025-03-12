@@ -1,0 +1,23 @@
+# Write a program that solicits six (6) numbers from the user 
+# and prints a message that describes whether the sixth number appears among the first five.
+# Algorithm:
+# 	1. Ask the user for a number six times
+# 	2. Add the numbers to a list
+# 	3. If the last number is within the first five numbers of list
+
+numbers = []
+
+numbers.append(input("Enter the 1st number: "))
+numbers.append(input("Enter the 2nd number: "))
+numbers.append(input("Enter the 3rd number: "))
+numbers.append(input("Enter the 4th number: "))
+numbers.append(input("Enter the 5th number: "))
+numbers.append(input("Enter the 6th number: "))
+
+if numbers[-1] in numbers[:-1]:
+    print(f'{numbers[-1]} is in {numbers[0]}, {numbers[1]}, {numbers[2]}, {numbers[3]}, {numbers[4]}')
+else:
+    print(f'{numbers[-1]} is not in {numbers[0]}, {numbers[1]}, {numbers[2]}, {numbers[3]}, {numbers[4]}')
+
+
+
