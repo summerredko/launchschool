@@ -1,0 +1,60 @@
+# Write a function that returns True or False 
+# based on whether or not an inventory item (an ID number) is available. 
+# The function takes two arguments: an item ID and a list of transactions. 
+# The function should return True only if the sum of the quantity values 
+# of the item's transactions is greater than zero. 
+# Notice that there is a movement property in each transaction object. 
+# A movement value of 'out' will decrease the item's quantity.
+
+# Input: integer and list
+# Output: Boolean value
+
+# Loop over a list
+# Look for the item_ID and add all transactions to a new list
+# sum the list
+# if over 0 return True
+# else return False
+
+def sum_item_count(item_trans):
+    count = 0
+    for trans in item_trans:
+        if trans['movement'] == 'in':
+            count += trans['quantity']
+        elif trans['movement'] == 'out':
+            count -= trans['quantity']
+    return count
+
+def is_item_available(item_ID, transactions):
+    item_trans = transactions_for(item_ID, transactions)
+    sum = sum_item_count(item_trans)
+    if sum <= 0:
+        return False
+    else:
+        return True
+
+def transactions_for(item_ID, trans_list):
+    return [transaction for transaction in trans_list if transaction['id'] == item_ID]
+
+
+transactions = [
+    {"id": 101, "movement": 'in',  "quantity":  5},
+    {"id": 105, "movement": 'in',  "quantity": 10},
+    {"id": 102, "movement": 'out', "quantity": 17},
+    {"id": 101, "movement": 'in',  "quantity": 12},
+    {"id": 103, "movement": 'out', "quantity": 20},
+    {"id": 102, "movement": 'out', "quantity": 15},
+    {"id": 105, "movement": 'in',  "quantity": 25},
+    {"id": 101, "movement": 'out', "quantity": 18},
+    {"id": 102, "movement": 'in',  "quantity": 22},
+    {"id": 103, "movement": 'out', "quantity": 15},
+]
+
+transactions2 = [
+    {"id": 101, "movement": 'in',  "quantity":  5},
+    {"id": 101, "movement": 'in',  "quantity": 12},
+    {"id": 101, "movement": 'out', "quantity": 18},
+]
+
+print(is_item_available(101, transactions) == False)  # True
+print(is_item_available(103, transactions) == False)  # True
+print(is_item_available(105, transactions) == True)   # True

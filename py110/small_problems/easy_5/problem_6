@@ -1,0 +1,42 @@
+# Write a function that takes a list of numbers 
+# and returns the sum of the sums of each leading subsequence in that list. 
+# You may assume that the list always contains at least one number.
+
+# Input: list
+# Output: integer
+
+# Data Structures:
+#   list
+
+# Algorithm:
+#   Take in a list of integers.
+#   Define a helper function to generate a list of the elements to add together
+#   Call that function within the main function
+#   Create a total variable to hold the sums
+#   loop through the list and nested lists
+#   Add values to total
+#   Return total
+
+
+def generate_list(lst):
+    return [lst[:idx + 1] for idx in range(len(lst))]
+
+def sum_of_sums(lst):
+    new_list = generate_list(lst)
+    total = 0
+    for nested_list in new_list:
+        for j in nested_list:
+            total += j
+    return total
+
+
+print(sum_of_sums([3, 5, 2]) == 21)               # True
+# (3) + (3 + 5) + (3 + 5 + 2) --> 21
+
+print(sum_of_sums([1, 5, 7, 3]) == 36)            # True
+# # (1) + (1 + 5) + (1 + 5 + 7) + (1 + 5 + 7 + 3) --> 36
+
+print(sum_of_sums([1, 2, 3, 4, 5]) == 35)         # True
+# # (1) + (1+2) + (1+2+3) + (1+2+3+4) + (1+2+3+4+5) --> 35
+
+print(sum_of_sums([4]) == 4)                      # True

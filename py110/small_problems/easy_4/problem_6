@@ -1,0 +1,28 @@
+# Write a function that takes a string argument 
+# and returns a list of substrings of that string. 
+# Each substring should begin with the first letter of the word, 
+# and the list should be ordered from shortest to longest.
+
+# Input: string
+# Output: list
+
+# Rules:
+# Find all the substrings in a string and return as a list ordered by length
+
+# Data Structures:
+# strings and lists
+
+# Algorithm:
+# Take a string as an argument
+# Initialize an empty list
+# Loop thorugh the string
+# Append the values at each index to a new list
+
+def leading_substrings(string):
+    return [string[:idx+1] for idx in range(len(string))]
+    
+
+# All of these examples should print True
+print(leading_substrings('abc') == ['a', 'ab', 'abc'])
+print(leading_substrings('a') == ['a'])
+print(leading_substrings('xyzy') == ['x', 'xy', 'xyz', 'xyzy'])

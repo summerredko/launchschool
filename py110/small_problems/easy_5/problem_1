@@ -1,0 +1,29 @@
+# Given a dictionary where both keys and values are unique, 
+# invert this dictionary so that its keys become values and its values become keys.
+
+# Data Structures:
+#   dictionary
+
+# Algorithm
+# Create an empty dictionary
+# Loop through the original dictionary and add all values as keys the new dictionary
+# Loop through again and add all keys to the values in the new dictionary
+
+def invert_dict(dict):
+    # transfer_dict = {}
+    # for key, value in dict.items():
+    #     transfer_dict[value] = key
+    # return transfer_dict
+    return {value: key for key, value in dict.items()}
+
+
+
+print(invert_dict({
+          'apple': 'fruit',
+          'broccoli': 'vegetable',
+          'salmon': 'fish',
+      }) == {
+          'fruit': 'apple',
+          'vegetable': 'broccoli',
+          'fish': 'salmon',
+      })  # True

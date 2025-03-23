@@ -1,0 +1,63 @@
+# Input: floating point number representing DD (0 to 360)
+# Output: string representing DMS
+
+# Rules:
+# Explicit:
+# 	Takes in a floating point number
+# 	convert to a string
+# 	use a degree symbol (code provided)
+# 	and ' "" symbols
+# 	There are 60 minutes in a degree
+# 	There are 60 seconds in a minute
+
+# Implicit: 
+# 	will need to calculate the conversion between DD and DMS
+		
+# Questions: 
+	
+# Data Structures:
+# 	lists
+
+# Algorithm:
+# 	DMS to DD calculation: result = integer + (mins / 60) + (secs / 3600)
+# 	DD to DMS calculation: result = integer + (mins * 60) + (secs * 60)
+
+# 	Take in a float as argument
+# 	Break float into integer and decimal parts
+# 	Multiple the decimals by 60 for mins and secs
+# 		Degrees = 30 (integer part).
+# 		Minutes = 0.2583 × 60 = 15.498 → The whole number is 15'.
+# 		Seconds = 0.498 × 60 = 29.88" (round to two decimals if needed)
+# 	convert calculation to string and concatenate with degree ' " 
+
+DEGREE = "\u00B0"
+
+def dms(dd_degree):
+    integer_part, decimal_part = divmod(dd_degree, 1)
+    integer = int(integer_part)
+    mins = decimal_part * 60
+    mins, secs = divmod(mins, 1)
+    mins = int(mins)
+    secs = int(secs * 60)
+    return f'{integer}{DEGREE}{mins:02}\'{secs:02}"'
+
+
+
+# def dms(dd_degree):
+#     integer_part, decimal_part = divmod(dd_degree, 1)
+#     integer = int(integer_part)
+#     mins = decimal_part * 60
+#     mins, secs = divmod(mins, 1)
+#     mins = int(mins)
+#     secs = int(secs * 60)
+#     min_icon = "'"
+#     sec_icon = '"'
+#     return f'{integer}{DEGREE}{mins:02}{min_icon}{secs:02}{sec_icon}'
+
+# All of these examples should print True
+print(dms(30) == "30°00'00\"")           # True
+print(dms(76.73) == "76°43'48\"")        # True
+print(dms(254.6) == "254°35'59\"")       # True
+print(dms(93.034773) == "93°02'05\"")    # True
+print(dms(0) == "0°00'00\"")             # True
+print(dms(360) == "360°00'00\"" or dms(360) == "0°00'00\"")  # True

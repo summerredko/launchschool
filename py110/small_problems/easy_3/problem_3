@@ -1,0 +1,31 @@
+# Input: string
+# Output: string
+
+# Rules:
+# Explicit:	
+# 	Double every character in a string
+
+# Implicit: None
+	
+# Questions:
+# 	Are spaces included?
+	
+# Data Structures:
+# 	String
+	
+# Algorithm:
+# 	Take a string as an argument
+# 	Loop through the string
+# 	Double every letter
+# 	Return new string
+
+def repeater(string):
+    new_string = ""
+    for char in string:
+        new_string += char + char
+    return new_string
+
+
+print(repeater('Hello') == "HHeelllloo")              # True
+print(repeater('Good job!') == "GGoooodd  jjoobb!!")  # True
+print(repeater('') == "")                             # True

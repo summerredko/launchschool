@@ -1,0 +1,37 @@
+# Input: two lists
+# Output: one list
+
+# Rules:
+# Explicit:	
+# 	take in two lists as arguments
+# 	return new list containing all elements from both lists
+# 	make sure elements are alternating
+
+# Implicit: None
+	
+# Questions: None
+		
+# Data Structures:
+# 	lists
+
+# Algorithm:
+# 	take in two lists as arguments 
+# 	combine list1 and list2 alternately
+# 	return new list3
+
+def interleave(lst1, lst2):
+    lst3 = []
+    # for idx in range(len(lst1)):
+    #     lst3.extend([lst1[idx], lst2[idx]])
+    merged = zip(lst1, lst2)
+    for i in merged:
+        lst3.extend(i)
+    
+    return lst3
+
+
+
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+expected = [1, "a", 2, "b", 3, "c"]
+print(interleave(list1, list2) == expected)      # True 

@@ -1,0 +1,32 @@
+# Input: integer
+# Output: list
+
+# Rules:
+# Explicit:
+# 	Turn an integer into a list containing all integers between 1  		and n
+
+# Implicit: None
+	
+# Questions: None
+	
+# Data Structures:
+# 	List
+		
+# Algorithm:
+# 	Take an integer as an argument
+# 	construct a list of integers in the range of the the argument
+
+def sequence(n):
+    # integer_range = []
+    # for i in range(1, n+1):
+    #     integer_range.append(i)
+    # return integer_range
+
+    # return list(range(1, n+1))
+    return [n for n in range(1, n+1)]
+
+
+
+print(sequence(5) == [1, 2, 3, 4, 5])   # True
+print(sequence(3) == [1, 2, 3])         # True
+print(sequence(1) == [1])               # True

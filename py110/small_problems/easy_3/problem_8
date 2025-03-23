@@ -1,0 +1,37 @@
+# Input: two integers
+# Output: list
+
+# Rules:
+# Explicit:	
+# 	Take in two integers as arguments.
+# 	The first number is a count and second is a start number
+# 	Return a list containing the same number of elements as count
+# 	Every element should be a multiple of the start number
+
+# Implicit: None
+	
+# Questions: None
+	
+# Data Structures:
+# 	List
+# 	Range constructor
+	
+		
+# Algorithm:
+# 	Take in two integers as arguments.
+# 	Create a list 
+# 	Create a range from start number, adding the number of elements 		as count number
+# 	Multiple each element from start number
+# 	Return list
+
+def sequence(count, start_num):
+    # new_list = []
+    # for i in range(1, count + 1):  # Generate count elements starting from 1
+    #     new_list.append(i * start)  # Multiply index by start value
+    # return new_list 
+    return [start_num * num for num in range(1, count + 1)]
+
+print(sequence(5, 1) == [1, 2, 3, 4, 5])          # True
+print(sequence(4, -7) == [-7, -14, -21, -28])     # True
+print(sequence(3, 0) == [0, 0, 0])                # True
+print(sequence(0, 1000000) == [])                 # True

@@ -1,0 +1,49 @@
+# Input: string of numbers
+# Output: integers
+
+# Rules:
+# Explicit:
+# 	Mutate a string of digits into integers
+# 	Cannot use int()
+# 	Function should calculate the result by using characters in string
+# 	Assume all characters are valid.
+	
+
+# Implicit: None
+		
+# Questions: None
+
+	
+# Data Structures:
+# 	match case
+
+
+# Algorithm:
+# 	Loop through each character in a string to convert the string digit into an integer. 
+#   Convert by matching the string character to its integer, and return that value. 
+#   Add the values back together and return the result as an integer.
+
+def string_to_signed_integer(string):
+    match string[0]:
+        case "+":
+            return string_to_integer(string[1:])
+        case "-":
+            return -string_to_integer(string[1:])
+        case _:
+            return string_to_integer(string)
+
+        
+def string_to_integer(string):
+
+    result = 0
+    dict_string = {str(num): num for num in range(0, 10)} 
+
+    for num in string:
+        int_num = dict_string[num]
+        result = (10 * result) + int_num
+
+    return result   
+
+print(string_to_signed_integer("4321") == 4321)  # True
+print(string_to_signed_integer("-570") == -570)  # True
+print(string_to_signed_integer("+100") == 100)   # True

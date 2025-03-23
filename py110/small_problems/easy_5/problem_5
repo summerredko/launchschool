@@ -1,0 +1,31 @@
+# Given two lists of integers of the same length, 
+# return a new list where each element is the product of the corresponding elements 
+# from the two lists.
+
+# Input: two lists
+# Output: list
+
+# Data Structures:
+#   list
+
+# Algorithm
+#   Take in two lists are arguments.
+#   Loop over each list
+#   Multiply list 1 elements with list 2 elements
+#       
+#   Return new lists
+
+def multiply_items(list1, list2):
+    # new_list = []
+    # merged = list(zip(list1, list2))
+    # for i in range(len(merged)):
+    #     product = merged[i][0] * merged[i][1]
+    #     new_list.append(product)
+
+    # return new_list
+    return [num1 * num2 for num1, num2 in zip(list1, list2)]
+
+list_a = [1, 2, 3]
+list_b = [4, 5, 6]
+print(multiply_items(list_a, list_b))
+print(multiply_items(list_a, list_b) == [4, 10, 18]) # True

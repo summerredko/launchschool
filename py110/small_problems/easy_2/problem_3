@@ -1,0 +1,64 @@
+# Input: list
+# Output: list with two nested lists
+
+# Rules:
+# Explicit:	
+# 	first half of list in nested list 1
+# 	second half of list in nested list 2
+# 	if list is odd number of elements, 
+# 	place middle element in first nested list
+
+# Implicit: 
+# 	if 1 element, create empty list for nested list 2
+# 	if no elements, create two empty nested lists
+		
+# Questions: None
+	
+# Data Structures:
+# 	lists
+
+# Algorithm:
+# 	Take in one list as argument.
+# 	split the list in two halves
+# 	nested both halves in an outer list
+# 	if 1 element, create empty list
+# 	if 0 element, create two empty lists
+	
+# Solution 1
+def halvsies(lst):
+    outer_list = []
+
+    if len(lst) == 1:
+        one_list = [lst]
+        empty_list = []
+        one_list.append(empty_list)
+        return one_list
+    
+    elif len(lst) % 2 != 0:
+        mid_index = (len(lst) + 1) // 2
+        first_half = lst[:mid_index]
+        second_half = lst[mid_index:]
+        outer_list.append(first_half) 
+        outer_list.append(second_half)
+        
+    else:
+        mid_index = (len(lst)) // 2
+        first_half = lst[:mid_index]
+        second_half = lst[mid_index:]
+        outer_list.append(first_half) 
+        outer_list.append(second_half)
+
+    return outer_list
+
+# Solution 2
+def halvsies(lst):
+    half = (len(lst) + 1) // 2
+    first_half = lst[:half]
+    second_half = lst[half:]
+    return [first_half, second_half]
+
+# All of these examples should print True
+print(halvsies([1, 2, 3, 4]) == [[1, 2], [3, 4]])
+print(halvsies([1, 5, 2, 4, 3]) == [[1, 5, 2], [4, 3]])
+print(halvsies([5]) == [[5], []])
+print(halvsies([]) == [[], []])

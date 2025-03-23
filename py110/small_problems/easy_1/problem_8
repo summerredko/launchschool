@@ -1,0 +1,64 @@
+# Input: string of numbers
+# Output: integers
+
+# Rules:
+# Explicit:
+# 	Mutate a string of digits into integers
+# 	Cannot use int()
+# 	Function should calculate the result by using characters in string
+# 	Assume all characters are valid.
+	
+
+# Implicit: None
+		
+# Questions: None
+
+	
+# Data Structures:
+# 	match case
+
+
+# Algorithm:
+# 	Loop through each character in a string to convert the string digit into an integer. 
+#   Convert by matching the string character to its integer, and return that value. 
+#   Add the values back together and return the result as an integer.
+
+def string_to_integer(string):
+    char_list = []
+    
+    for char in string:
+        char_list.append(char)
+
+    for i in range(len(char_list)):
+        match char_list[i]:
+            case "1":
+                char_list[i] = 1
+            case "2":
+                char_list[i] = 2
+            case "3":
+                char_list[i] = 3
+            case "4":
+                char_list[i] = 4
+            case "5":
+                char_list[i] = 5
+            case "6":
+                char_list[i] = 6
+            case "7":
+                char_list[i] = 7
+            case "8":
+                char_list[i] = 8
+            case "9":
+                char_list[i] = 9
+            case "0":
+                char_list[i] = 0
+
+    result = 0
+    for num in char_list:
+        result = result * 10 + num 
+    
+    return result
+
+
+
+print(string_to_integer("4321") == 4321)  # True
+print(string_to_integer("570") == 570)    # True

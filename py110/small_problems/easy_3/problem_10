@@ -1,0 +1,88 @@
+# Input: string
+# Output: Boolean value (True or False)
+
+# Rules:
+# Explicit:	
+# 	Return True if all parentheses are balanced, matched () pairs
+
+# Implicit: None
+	
+# Questions: Does balanced mean the opposite index or just enclosed ()
+	
+# Data Structures:
+# 	Loops and strings
+		
+# Algorithm:
+# 	Take in a string as an argument.
+# 	Loop through the string.
+# 	Check if there are equal amount of ( and )
+# 	Return True if so
+
+# def is_balanced(s):
+#     pars = 0
+#     for char in s:
+#         if char == "(":
+#             pars += 1
+#         elif char == ")":
+#             pars -= 1
+#         if pars < 0:
+#             return False
+
+#     return pars == 0
+
+# def is_balanced(s):
+#     parens = 0
+#     for char in s:
+#         if char == "(":
+#             parens += 1
+#         elif char == ")":
+#             parens -= 1
+#         if parens < 0:
+#             return False
+#     return parens == 0
+
+def is_balanced(string: str):
+    stack = []
+    pairs = {')': '(', ']': '[', '}': '{'}
+    quotes = {'"', '\''}
+    
+    for char in string:
+        if char in pairs.values():  # Opening brackets
+            stack.append(char)
+        elif char in pairs:  # Closing brackets
+            if not stack or stack[-1] != pairs[char]:
+                return False
+            stack.pop()
+        elif char in quotes:  # Handling quotes
+            if stack and stack[-1] == char:
+                stack.pop()  # Closing quote
+            else:
+                stack.append(char)  # Opening quote
+                
+    return not stack
+
+
+print(is_balanced("{}") == True)
+print(is_balanced("[]") == True)
+print(is_balanced("()") == True)
+print(is_balanced("{[({})]}") == True)
+print(is_balanced("\"{[('')]}\"") == True) 
+print(is_balanced("Hello [Python] (asdf).") == True)
+print(is_balanced("{[()stacks]} are {kool[()]}") == True)
+print(is_balanced("{[}]") == False)
+print(is_balanced("({[})") == False)
+print(is_balanced("][") == False)
+print(is_balanced("'''") == False)
+print(is_balanced("'\"'\"'") == False)
+
+
+
+
+# print(is_balanced("What (is) this?") == True)        # True
+# print(is_balanced("What is) this?") == False)        # True
+# print(is_balanced("What (is this?") == False)        # True
+# print(is_balanced("((What) (is this))?") == True)    # True
+# print(is_balanced("((What)) (is this))?") == False)  # True
+# print(is_balanced("Hey!") == True)                   # True
+# print(is_balanced(")Hey!(") == False)                # True
+# print(is_balanced("What ((is))) up(") == False)      # True

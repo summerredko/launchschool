@@ -1,0 +1,33 @@
+# Input: 2 lists 
+# Output: list
+
+# Rules:
+# Explicit:	
+# 	Take in two lists of numbers as arguments 
+# 	multiple the lists together by index
+
+# Implicit: None
+		
+# Questions: None
+	
+# Data Structures:
+# 	lists
+
+# Algorithm:
+# 	Take in two lists as arguments.
+# 	loop through each list
+# 	multiple corresponding indexes
+# 	add results to a new list
+
+def multiply_list(list1, list2):
+    # product = []
+    # for i in range(len(list1)):
+    #     result = list1[i] * list2[i]
+    #     product.append(result)
+    # return product
+    return [a * b for a, b in zip(list1, list2)]
+
+
+list1 = [3, 5, 7]
+list2 = [9, 10, 11]
+print(multiply_list(list1, list2) == [27, 50, 77])  # True

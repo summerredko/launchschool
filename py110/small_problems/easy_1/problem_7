@@ -1,0 +1,56 @@
+# Input: string
+# Output: string
+
+# Rules:
+# Explicit:
+# 	Take in a string.
+# 	Swap first letter with the last letter of each work
+# 	Every word has at least one letter
+# 	The string will always have one word
+# 	Strings only contain words and space
+# 	But no leading, trailing or repeated spaces
+
+
+# Implicit: None
+	
+		
+# Questions: None
+
+	
+# Data Structures:
+# 	Strings
+# 	Lists
+
+
+# Algorithm:
+# 	Take in a string, then split all words into a list. 
+# 	Loop through each word in the list and swap first and last letters.
+
+#   If the word is only 1 letter, add it to the new list without operation.
+
+#   Slice the first letter off the word. Then slice the last letter off the word.
+#   Save those slices. Then concatenance the middle of the word with the reverse position
+#   of the first and last letters.
+
+# 	Join words in list back together as one string.
+# 	Return that string
+
+
+
+def swap(string):
+    new_list = []
+    words = string.split()
+    for i in range(len(words)):
+        if len(words[i]) == 1:
+            new_list.append(words[i])
+        else:
+            new_list.append(words[i][-1] + words[i][1:-1] + words[i][0])
+    new_string = " ".join(new_list)
+
+    return new_string
+
+
+print(swap('Oh what a wonderful day it is')
+      == "hO thaw a londerfuw yad ti si")  # True
+print(swap('Abcde') == "ebcdA")            # True
+print(swap('a') == "a")                    # True

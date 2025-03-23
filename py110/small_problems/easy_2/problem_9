@@ -1,0 +1,46 @@
+# Input: list
+# Output: strings and integers
+
+# Rules:
+# Explicit:		
+# 	take in a list
+# 	count the total number each element appears in the list
+# 	print the element and number of times it appears 
+# 	words are case sensitive
+
+# Implicit: None
+			
+# Questions: None
+	
+# Data Structures:
+# 	dictionary
+
+# Algorithm:
+# 	take as list as an argument 
+# 	loop through the list
+# 	count the number of times an element appears
+# 	print each element and it's number
+
+
+
+vehicles = ['car', 'car', 'truck', 'car', 'SUV', 'suv', 'truck',
+            'motorcycle', 'motorcycle', 'car', 'truck']
+
+def count_occurrences(lst):
+    count_dict = {}
+
+    for element in lst:
+        if element not in count_dict:
+            count_dict[element] = 1
+        else:
+            count_dict[element] += 1
+
+
+    for key, value in count_dict.items():
+        print(f'{key} => {value}')
+
+# def count_occurrences(lst):
+#     for element in set(lst):                         # iterate over new set without duplicates
+#         print(f'{element} => {lst.count(element)}')  # use original list argument to count occurrences
+
+count_occurrences(vehicles)

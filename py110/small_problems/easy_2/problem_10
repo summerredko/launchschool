@@ -1,0 +1,30 @@
+# Input: list
+# Output: integer
+
+# Rules:
+# Explicit:	
+# 	take in a list as argument
+# 	average all of the integers in list
+# 	no decimals
+
+# Implicit: None
+			
+# Questions: None
+	
+# Data Structures:
+# 	list
+
+# Algorithm:
+# 	take in a list as argument
+# 	add all integers in list
+# 	divide by length of list
+# 	round to integer
+
+def average(lst):
+    return int(sum(lst) / len(lst))
+    
+
+
+print(average([1, 5, 87, 45, 8, 8]) == 25)        # True
+print(average([9, 47, 23, 95, 16, 52]) == 40)     # True
+print(average([7]) == 7)                          # True

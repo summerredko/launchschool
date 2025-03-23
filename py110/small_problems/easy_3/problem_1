@@ -1,0 +1,46 @@
+# Input: signed integer
+# Output: string
+
+# Rules:
+# Explicit:	
+# 	Represent the number of mins before or after midnight.
+# 	If the integer is positive, it is after midnight.
+# 	Else if the integer is negative, before midnight
+# 	Return a string in 24-hour format
+
+# Implicit: 
+# 	Needs to include more than one 24 hour period
+	
+# Questions: None
+	
+# Data Structures:
+# 	integers
+# 	strings
+# 	range constructor?
+	
+# Algorithm:
+# 	Take a signed integer as the argument
+# 	Math equation for minutes	
+# 		60 minutes in 1 hour
+# 		24 hours in 1 day
+# 		1440 minutes in 24 hours
+# 		0 is the apex of midnight
+# 	format the output to hh:mm
+
+
+MIN_PER_HR = 60
+HRS_PER_DAY = 24
+
+def time_of_day(minutes):
+    time_minutes = minutes % MIN_PER_HR
+    time_hours = (minutes // MIN_PER_HR) % HRS_PER_DAY
+
+    return f"{time_hours:02d}:{time_minutes:02d}"
+
+print(time_of_day(0) == "00:00")        # True
+print(time_of_day(-3) == "23:57")       # True
+print(time_of_day(35) == "00:35")       # True
+print(time_of_day(-1437) == "00:03")    # True
+print(time_of_day(3000) == "02:00")     # True
+print(time_of_day(800) == "13:20")      # True
+print(time_of_day(-4231) == "01:29")    # True

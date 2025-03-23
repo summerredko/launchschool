@@ -1,0 +1,38 @@
+# Input: string
+# Output: string
+
+# Rules:
+# Explicit:	
+# 	Double every consonant in the string
+# 	Do not double vowels, digits, punctuation or whitespace
+
+# Implicit: None
+	
+# Questions: None
+	
+# Data Structures:
+# 	String
+		
+# Algorithm:
+# 	Take a string as an argument
+# 	Loop through the string and filter out all consonants
+# 	Double consonants
+# 	Return new string
+
+def double_consonants(string):
+    new_string = ""
+
+    for char in string:
+        if char.lower() in "bcdfghjklmnpqrstvwxyz": 
+            new_string += char * 2
+        else:
+            new_string += char
+
+    return new_string
+
+
+# All of these examples should print True
+print(double_consonants('String') == "SSttrrinngg")
+print(double_consonants('Hello-World!') == "HHellllo-WWorrlldd!")
+print(double_consonants('July 4th') == "JJullyy 4tthh")
+print(double_consonants('') == "")

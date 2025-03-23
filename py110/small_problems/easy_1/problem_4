@@ -1,0 +1,43 @@
+# Input: List of numbers
+# Output: List of number that are running totals 
+	
+# Rules:
+# Explicit:
+# 	Take a list of integers
+# 	Add the values together
+# 	Return list with running totals [2, 5, 13] = [2, 7, 20]
+
+# Implicit: None
+		
+# Questions:
+# 	How are negative integers processed?
+# 	Are floats accepted?
+# 	What if a list is empty?
+# 	What is elements in list are not integers or floats?
+# 	What if not the same number of elements is present in new list?
+		
+# Data Structures:
+# 	Lists
+
+# Algorithm:
+# 	Take a list as an argument 
+# 	Loop through the list
+# 	Add the first element to the second and return sum
+# 	Continue process until each of list is reached
+# 	Return new list with same number of elements
+
+
+def running_total(lst):
+    result = []
+
+    for idx in range(len(lst)):
+        result.append(sum(lst[:idx + 1]))
+
+    return result
+
+
+
+print(running_total([2, 5, 13]) == [2, 7, 20])    # True
+print(running_total([14, 11, 7, 15, 20]) == [14, 25, 32, 47, 67])                    # True
+print(running_total([3]) == [3])                  # True
+print(running_total([]) == [])                    # True

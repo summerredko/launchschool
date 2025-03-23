@@ -1,0 +1,23 @@
+# From two list arguments, 
+# determine the elements that are unique to the first list. 
+# The return value should be a set.
+
+# Input: lists
+# Output: set
+
+# Rules:
+#   Find all the values in list1 that are not in list2
+#   Return a set of those values
+
+# Data Structures:
+#   Lists and
+
+def unique_from_first(list1, list2):
+    # return {num1 for num1 in list1 for num2 in list2 if num1 not in list2}
+    return set(list1) - set(list2)
+
+
+
+list1 = [3, 6, 9, 12]
+list2 = [6, 12, 15, 18]
+print(unique_from_first(list1, list2) == {9, 3})
